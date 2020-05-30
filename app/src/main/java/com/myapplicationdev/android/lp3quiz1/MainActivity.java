@@ -10,6 +10,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -57,10 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default");
                 builder.setContentTitle("LP3 Quiz1");
-                builder.setContentText("This is a basic/simple notification");
+                builder.setContentText("This is a simple notification");
                 builder.setSmallIcon(android.R.drawable.btn_star_big_off);
                 builder.setContentIntent(pIntent);
                 builder.setAutoCancel(true);
+
+                Uri uri= RingtoneManager.getDefaultUri
+                        (RingtoneManager.TYPE_NOTIFICATION);
+                builder.setSound(uri);
+
+                builder.setPriority(Notification.PRIORITY_HIGH);
+
 
                 Notification n = builder.build();
 
@@ -72,14 +81,23 @@ public class MainActivity extends AppCompatActivity {
         btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bitmap picture = BitmapFactory.decodeResource(getResources(),R.drawable.koala);
                 NotificationCompat.Builder builder = new
                         NotificationCompat.Builder(MainActivity.this, "default");
-                builder.setContentTitle("LP3 Quiz1");
-                builder.setContentText("Expand to see picture");
+                builder.setContentTitle("This is Big Picture");
+                builder.setContentText("Koala!");
                 builder.setSmallIcon(android.R.drawable.btn_star_big_off);
+                builder.setLargeIcon(picture);
+                builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(picture).bigLargeIcon(null));
                 builder.setContentIntent(pIntent);
                 builder.setAutoCancel(true);
+
+                Uri uri= RingtoneManager.getDefaultUri
+                        (RingtoneManager.TYPE_NOTIFICATION);
+                builder.setSound(uri);
+
+                builder.setPriority(Notification.PRIORITY_HIGH);
+
 
                 Notification n = builder.build();
 

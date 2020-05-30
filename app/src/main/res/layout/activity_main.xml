@@ -19,16 +19,19 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/basic"/>
+        android:text="@string/basic"
+        android:id="@+id/btnBasic"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bigPicture"/>
+        android:text="@string/bigPicture"
+        android:id="@+id/btnPicture"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/inbox"/>
+        android:text="@string/inbox"
+        android:id="@+id/btnInbox"/>
 
 </LinearLayout>
